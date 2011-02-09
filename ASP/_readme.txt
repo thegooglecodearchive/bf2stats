@@ -1,22 +1,23 @@
-===============================================================
-BF2Statistics 1.4 - Private Statistics System for Battlefield 2
-===============================================================
+====================================================================================
+BF2Statistics Unofficial 1.4.3 Release - Private Statistics System for Battlefield 2
+====================================================================================
 
-Released by:  		The Shadow (based on the work of MrNiceGuy, Chump, nylOn, Wolverine, and others)
-Release date: 		2006-10-16
-Release version:	1.4.2
+Released by:  		Wilson212 (based on the work of The Shadow, MrNiceGuy, Chump, nylOn, Wolverine, and others)
+Release date: 		2011-02-09
+Release version:	1.4.3
 License:		GNU General Public License
 
 Support URL:		http://www.bf2statistics.com/
 
-Release Author:		The Shadow
-Author Email:		shadow42@iinet.net.au
-Author URL:		http://www.shadowlans.com/
+Original Author:	The Shadow
+Release Author:		Wilson212
+Author Email:		wilson.steven10@yahoo.com
+Author URL:		http://www.keyswow.com
 
 
 Legal Bit:
 ==========
-Copyright (C) 2006  BF2Statistics
+Copyright (C) 2006 - 2011  BF2Statistics
 
 This program is free software; you can redistribute it and/or modify it under the terms of the GNU
 General Public License as published by the Free Software Foundation; either version 2 of the License,
