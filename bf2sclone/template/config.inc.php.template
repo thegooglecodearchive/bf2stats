@@ -1,0 +1,9 @@
+<?php
+$ROOT = '{:ROOT:}';
+$DOMAIN = '{:DOMAIN:}';
+$DBIP = '{:DBIP:}';
+$DBNAME = '{:DBNAME:}';
+$DBLOGIN = '{:DBLOGIN:}';
+$DBPASSWORD = '{:DBPASSWORD:}';
+$SITE_TITLE = '{:SITE_TITLE:}';
+?>

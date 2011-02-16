@@ -66,6 +66,10 @@ www.bf2statistics.com
 
 	3.2 after that, Place the ASP folder into your htdocs or www folder (%systemroot%\xampp\htdocs.)
 	
+	3.3 I also included BF2s Clone. If you want to use this ( Its a player stats web interface like this -> http://bf2s.com ) Then also insert this into your htdocs / www folder
+	
+	3.3.1 To install BF2s Clone, go www.yourIP.com/yourBF2s_clone_folder/install.php
+	
 	4. Next, open your browser and type in the address bar "127.0.0.1/asp" ... for the username, type: Admin and the password is: Password. The username
 		and password ARE CASE SENSATIVE!
 

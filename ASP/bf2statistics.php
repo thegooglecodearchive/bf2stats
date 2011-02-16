@@ -1132,7 +1132,7 @@ if ($data['pc'] >= $cfg->get('stats_players_min') && $globals['roundtime'] >= $c
 		$row = mysql_fetch_assoc($result);
 		$query = "UPDATE servers SET ".
 			"port = '{$gamesrv_port}', ".
-			"queryport = {$gamesrv_port}, ".
+			"queryport = {$gamesrv_qryport}, ".
 			"lastupdate = NOW() ".
 			"WHERE ip = '{$gamesrv_ip}' AND prefix = '{$prefix}' ";
 		$result = mysql_query($query);
