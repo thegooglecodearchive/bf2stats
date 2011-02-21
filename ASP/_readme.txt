@@ -3,8 +3,8 @@ BF2Statistics Unofficial 1.4.4 Release - Private Statistics System for Battlefie
 ====================================================================================
 
 Released by:  		Wilson212 (based on the work of The Shadow, MrNiceGuy, Chump, nylOn, Wolverine, and others)
-Release date: 		2011-02-09
-Release version:	1.4.3
+Release date: 		2011-02-20
+Release version:	1.4.4
 License:		GNU General Public License
 
 Support URL:		http://www.bf2statistics.com/
