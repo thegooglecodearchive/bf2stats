@@ -38,7 +38,7 @@ import os
 from bf2 import g_debug
 
 from bf2.stats.constants import *
-from bf2.BF2StatisticsConfig import http_backend_addr, http_backend_port, medals_custom_data
+from bf2.BF2StatisticsConfig import http_backend_addr, http_backend_port, medals_custom_data, medals_force_keystring
 from bf2.stats.miniclient import miniclient, http_get
 
 
@@ -199,25 +199,32 @@ def init():
 	
 # create the stats query string in gamespy format
 def createGlobalKeyString(keymap):
-	keystring = "&info=rank,"
-	usedKeys = {}
-	for k in keymap:
-		# strip number trailing '-' in key, as gamespy doesnt allow per-vehicle/weapon/kit key-getting. 
-		f = k.find('-')
-		if f != -1:
-			k = k[:f+1]
+
+	# Determine if the config enables force Keystring
+	if medals_force_keystring == 0:
+		keystring = "&info=rank,"
+		usedKeys = {}
+		for k in keymap:
+			# strip number trailing '-' in key, as gamespy doesnt allow per-vehicle/weapon/kit key-getting. 
+			f = k.find('-')
+			if f != -1:
+				k = k[:f+1]
+			
+			if not k in usedKeys:
+				keystring = keystring + k + ","
+				usedKeys[k] = 1
 		
-		if not k in usedKeys:
-			keystring = keystring + k + ","
-			usedKeys[k] = 1
-	
-	# put vac- at the end of string, compensating for gamespy bug
-	if keystring.find('vac-'):
-		keystring = keystring.replace('vac-,', '') + 'vac-,'
-	
-	# remove last comma
-	if len(k) > 0:
-		keystring = keystring[:len(keystring)-1]
+		# put vac- at the end of string, compensating for gamespy bug
+		if keystring.find('vac-'):
+			keystring = keystring.replace('vac-,', '') + 'vac-,'
+		
+		# remove last comma
+		if len(k) > 0:			
+			keystring = keystring[:len(keystring)-1]
+			
+	else:
+		print "Forcing Global Keystring"
+		keystring = "&info=rank,ktm-,dfcp,rpar,vtm-,bksk,scor,wdsk,wkl-,heal,dsab,cdsc,tsql,tsqm,wins,vkl-,twsc,time,kill,rsup,tcdr,vac-"
 		
 	return keystring
 

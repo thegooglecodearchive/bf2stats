@@ -50,7 +50,7 @@ from bf2.stats.medals import getMedalMap, setMedalMap
 # ------------------------------------------------------------------------------
 # omero 2006-03-31
 # ------------------------------------------------------------------------------
-from bf2.BF2StatisticsConfig import http_backend_addr, http_backend_port, http_backend_asp, http_central_enable, http_central_addr, http_central_port, http_central_asp, snapshot_prefix
+from bf2.BF2StatisticsConfig import snapshot_logging, snapshot_log_path_sent, snapshot_log_path_unsent, http_backend_addr, http_backend_port, http_backend_asp, http_central_enable, http_central_addr, http_central_port, http_central_asp, snapshot_prefix
 from bf2.stats.miniclient import miniclient, http_postSnapshot
 
 # Added by Chump - for bf2statistics stats
@@ -84,20 +84,60 @@ def invoke():
 	
 	if g_debug: print "Gathering SNAPSHOT Data"
 	snapShot = getSnapShot()
-	
-	# Print in log
-	print snapShot
 
 	# Send snapshot to Backend Server
 	print "Sending SNAPSHOT to backend: %s" % str(http_backend_addr)
+	SNAP_SEND = 0
 
+	
+	# -------------------------------------------------------------------
+	# Attempt to send snapshot
+	# -------------------------------------------------------------------
 	try:
 		backend_response = http_postSnapshot( http_backend_addr, http_backend_port, http_backend_asp, snapShot )
+		SNAP_SEND = 1
 		
 	except Exception, e:
+		SNAP_SEND = 0
 		print "An error occurred while sending SNAPSHOT to backend: %s" % str(e)
 		
 	
+	# -------------------------------------------------------------------
+	# If SNAPSHOT logging is enabled, then log the snapshot
+	# -------------------------------------------------------------------	
+	if SNAP_SEND == 0 and snapshot_logging > 0:
+		log_time = str(strftime("%Y%m%d_%H%M", localtime()))
+		snaplog_title = snapshot_log_path_unsent + "/" + snapshot_prefix + "-" + bf2.gameLogic.getMapName() + "_" + log_time + ".txt"
+		print "Logging snapshot for manual processing..."
+		print "SNAPSHOT log file: %s" % snaplog_title
+		snap_log = file(snaplog_title, 'a')
+		
+		try:
+			snap_log.write(snapShot)
+			snap_log.close()
+		
+		except Exception, e:
+			print "Cannot write to SNAPSHOT log file! Reason: %s" % str(e)
+			print "Printing Snapshot as last resort manual processing: ", snapShot
+			
+	elif SNAP_SEND == 1 and snapshot_logging == 1:
+		log_time = str(strftime("%Y%m%d_%H%M", localtime()))
+		snaplog_title = snapshot_log_path_sent + "/" + snapshot_prefix + "-" + bf2.gameLogic.getMapName() + "_" + log_time + ".txt"
+		print "SNAPSHOT log file: %s" % snaplog_title
+		snap_log = file(snaplog_title, 'a')
+		
+		try:
+			snap_log.write(snapShot)
+			snap_log.close()
+		
+		except Exception, e:
+			print "Cannot write to SNAPSHOT log file! Reason: %s" % str(e)
+			print "Printing Snapshot as last resort manual processing: ", snapShot
+	
+	else:
+		print "Printing Snapshot: ", snapShot
+			
+
 	# Send Snapshot to Central Backend Server
 	if http_central_enable == 1 or http_central_enable == 2:
 		print "Sending SNAPSHOT to Central Backend: %s" % str(http_central_addr)
@@ -113,6 +153,7 @@ def invoke():
 		
 	
 	print "SNAPSHOT Processing Time: %d" % (host.timer_getWallTime() - snapshot_start)
+
 
 # ------------------------------------------------------------------------------
 # omero 2006-03-31

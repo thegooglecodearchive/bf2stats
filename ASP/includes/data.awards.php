@@ -155,35 +155,35 @@ function buildBackendAwardsData($mod)
 	#Mid-East Service
 	$awardsdata[] = array(3191305, "Msr", 1,
 						array(
-							array('maps', 'count(*)', 7, 'mapid IN (2,4,5,6,705,707,716) AND `time` >= 1')
+							array('maps', 'count(*)', 7, 'mapid IN (0,1,2,3,4,5,6) AND `time` >= 1')
 						)
 					);
 	
 	#Far-East Service
 	$awardsdata[] = array(3190605, "Fsr", 1,
 						array(
-							array('maps', 'count(*)', 6, 'mapid IN (100,101,102,103,105,709) AND `time` >= 1')
+							array('maps', 'count(*)', 6, 'mapid IN (100,101,102,103,105,601) AND `time` >= 1')
 						)
 					);
 	
 	#Navy Cross
 	$awardsdata[] = array(2021403, "Ncm", 2,
 						array(
-							array('army', 'count(*)', 1, 'time0 >= 270000*### AND best0 >= 100*### AND win0 >= 100*###')
+							array('army', 'count(*)', 1, 'time0 >= 360000*### AND best0 >= 100*### AND win0 >= 100*###')
 						)
 					);
 	
 	#Golden Scimitar
 	$awardsdata[] = array(2020719, "Gsm", 2,
 						array(
-							array('army', 'count(*)', 1, 'time1 >= 270000*### AND best1 >= 100*### AND win1 >= 100*###')
+							array('army', 'count(*)', 1, 'time1 >= 360000*### AND best1 >= 100*### AND win1 >= 100*###')
 						)
 					);
 	
 	#People's Medallion
 	$awardsdata[] = array(2021613, "pmm", 2,
 						array(
-							array('army', 'count(*)', 1, 'time2 >= 270000*### AND best2 >= 100*### AND win2 >= 100*###')
+							array('army', 'count(*)', 1, 'time2 >= 360000*### AND best2 >= 100*### AND win2 >= 100*###')
 						)
 					);
 	
@@ -191,15 +191,15 @@ function buildBackendAwardsData($mod)
 	$awardsdata[] = array(2270521, "Esr", 2,
 						array(
 							array('maps', 'count(*)', 3, 'mapid IN (10,11,110) AND `time` >= 1'),
-							array('army', 'count(*)', 1, 'time9 >= 108000*### AND best9 >= 100*### AND win9 >= 100*###')
+							array('maps', 'sum(`time`)', 180000, 'mapid IN (10,11,110) AND `time` >= 1')
 						)
 					);
 	
 	#European Union Service ribbon
 	$awardsdata[] = array(3270519, "Eum", 1,
 						array(
-							array('maps', 'count(*)', 3, 'mapid IN (10,11,110) AND `time` >= 1'),
-							array('maps', 'sum(`time`)', 108000, 'mapid IN (10,11,110) AND `time` >= 1')
+							array('maps', 'count(*)', 3, 'mapid IN (200,201,202) AND `time` >= 1'),
+							array('maps', 'sum(`time`)', 90000, 'mapid IN (200,201,202) AND `time` >= 1')
 						)
 					);
 	
@@ -218,78 +218,78 @@ function buildBackendAwardsData($mod)
 		# Navy Seal Special Service Medal
 		$awardsdata[] = array(2261913, "X1Nsm", 2,
 							array(
-								array('army', 'count(*)', 1, 'time3 >= 108000*### AND best3 >= 100*### AND win3 >= 50*###')
+								array('army', 'count(*)', 1, 'time3 >= 180000*### AND best3 >= 100*### AND win3 >= 50*###')
 							)
 						);
 		# SAS Special Service Medal
 		$awardsdata[] = array(2261919, "X1Ssm", 2,
 							array(
-								array('army', 'count(*)', 1, 'time4 >= 108000*### AND best4 >= 100*### AND win4 >= 50*###')
+								array('army', 'count(*)', 1, 'time4 >= 180000*### AND best4 >= 100*### AND win4 >= 50*###')
 							)
 						);
 		# SPETZ Special Service Medal
 		$awardsdata[] = array(2261613, "X1Spm", 2,
 							array(
-								array('army', 'count(*)', 1, 'time5 >= 108000*### AND best5 >= 100*### AND win5 >= 50*###')
+								array('army', 'count(*)', 1, 'time5 >= 180000*### AND best5 >= 100*### AND win5 >= 50*###')
 							)
 						);
 		# MECSF Special Service Medal
 		$awardsdata[] = array(2261303, "X1Mcm", 2,
 							array(
-								array('army', 'count(*)', 1, 'time6 >= 108000*### AND best6 >= 100*### AND win6 >= 50*###')
+								array('army', 'count(*)', 1, 'time6 >= 180000*### AND best6 >= 100*### AND win6 >= 50*###')
 							)
 						);
 		# Rebel Special Service Medal
 		$awardsdata[] = array(2261802, "X1Rbm", 2,
 							array(
-								array('army', 'count(*)', 1, 'time7 >= 108000*### AND best7 >= 100*### AND win7 >= 50*###')
+								array('army', 'count(*)', 1, 'time7 >= 180000*### AND best7 >= 100*### AND win7 >= 50*###')
 							)
 						);
 		# Insurgent Special Service Medal
 		$awardsdata[] = array(2260914, "X1Inm", 2,
 							array(
-								array('army', 'count(*)', 1, 'time8 >= 108000*### AND best8 >= 100*### AND win8 >= 50*###')
+								array('army', 'count(*)', 1, 'time8 >= 180000*### AND best8 >= 100*### AND win8 >= 50*###')
 							)
 						);
 		# Navy Seal Service Ribbon
 		$awardsdata[] = array(3261919, "X1Nss", 1,
 							array(
-								array('army', 'count(*)', 1, 'time3 >= 108000'),
+								array('army', 'count(*)', 1, 'time3 >= 180000'),
 								array('maps', 'count(*)', 3, 'mapid IN (300,301,304) AND `time` >= 1')
 							)
 						);
 		# SAS Service Ribbon
 		$awardsdata[] = array(3261901, "X1Sas", 1,
 							array(
-								array('army', 'count(*)', 1, 'time4 >= 108000'),
+								array('army', 'count(*)', 1, 'time4 >= 180000'),
 								array('maps', 'count(*)', 3, 'mapid IN (302,303,307) AND `time` >= 1')
 							)
 						);
 		# SPETZNAS Service Ribbon
 		$awardsdata[] = array(3261819, "X1Rsz", 1,
 							array(
-								array('army', 'count(*)', 1, 'time5 >= 108000'),
+								array('army', 'count(*)', 1, 'time5 >= 180000'),
 								array('maps', 'count(*)', 3, 'mapid IN (305,306,307) AND `time` >= 1')
 							)
 						);
 		# MECSF Service Ribbon
 		$awardsdata[] = array(3261319, "X1Msf", 1,
 							array(
-								array('army', 'count(*)', 1, 'time6 >= 108000'),
+								array('army', 'count(*)', 1, 'time6 >= 180000'),
 								array('maps', 'count(*)', 3, 'mapid IN (300,301,304) AND `time` >= 1')
 							)
 						);
 		# Rebel Service Ribbon
 		$awardsdata[] = array(3261805, "X1Reb", 1,
 							array(
-								array('army', 'count(*)', 1, 'time7 >= 108000'),
+								array('army', 'count(*)', 1, 'time7 >= 180000'),
 								array('maps', 'count(*)', 2, 'mapid IN (305,306) AND `time` >= 1')
 							)
 						);
 		# Insurgent Service Ribbon
 		$awardsdata[] = array(3260914, "X1Ins", 1,
 							array(
-								array('army', 'count(*)', 1, 'time8 >= 108000'),
+								array('army', 'count(*)', 1, 'time8 >= 180000'),
 								array('maps', 'count(*)', 2, 'mapid IN (302,303) AND `time` >= 1')
 							)
 						);

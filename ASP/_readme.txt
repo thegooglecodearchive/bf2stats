@@ -1,5 +1,5 @@
 ====================================================================================
-BF2Statistics Unofficial 1.4.3 Release - Private Statistics System for Battlefield 2
+BF2Statistics Unofficial 1.4.4 Release - Private Statistics System for Battlefield 2
 ====================================================================================
 
 Released by:  		Wilson212 (based on the work of The Shadow, MrNiceGuy, Chump, nylOn, Wolverine, and others)

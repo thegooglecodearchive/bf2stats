@@ -1,5 +1,5 @@
 # ------------------------------------------------------------------------------
-# BF2Statistics 1.4 - Config File
+# UnOfficial BF2Statistics 1.4.4 - Config File
 # ------------------------------------------------------------------------------
 # Conventions:
 #    0 -> Disable
@@ -9,9 +9,21 @@
 # ------------------------------------------------------------------------------
 # Debug Logging
 # ------------------------------------------------------------------------------
-debug_enable = 1	
+debug_enable = 0	
 debug_log_path = 'python/bf2/logs'		# Relative from BF2 base folder
-debug_fraglog_enable = 1				# Detailed 'Fragalyzer' Logs
+debug_fraglog_enable = 0				# Detailed 'Fragalyzer' Logs
+
+# ------------------------------------------------------------------------------
+# Snapshot Logging
+# ------------------------------------------------------------------------------
+# Enables server to make snapshot backups. 
+# 0 = disable all snapshot logging
+# 1 = all snapshots 
+# 2 = log only on error sending to backend
+# ------------------------------------------------------------------------------
+snapshot_logging = 2
+snapshot_log_path_sent = 'python/bf2/logs/snapshots/sent' 		# Relative from the BF2 base folder
+snapshot_log_path_unsent = 'python/bf2/logs/snapshots/unsent' 	# Relative from the BF2 base folder
 
 # ------------------------------------------------------------------------------
 # Backend Web Server
@@ -28,7 +40,11 @@ snapshot_prefix = 'BF2'		# Prefix Snapshots with this tag
 # ------------------------------------------------------------------------------
 # Medals Processing
 # ------------------------------------------------------------------------------
-medals_custom_data = ''		# Suffix for your custom medals file(s)
+medals_custom_data = 'custom'		# Suffix for your custom medals file(s)
+
+# Removing medal requirements can mess up the keystring, Use this to force the correct string
+# Recomended to enable if some medal requirement are removed from the medal_data.py
+medals_force_keystring = 0			
 
 # ------------------------------------------------------------------------------
 # Player Manager
@@ -78,6 +94,13 @@ http_central_asp = '/ASP/bf2statistics.php'
 #     1: Sync  - This simply copies the SNAPSHOT as-is to the central DB          #
 #     2: Minimal - Record everything, except Rank & Award data (typically use     #
 #				for LANs or Tournaments where local db starts blank)              #
+
+
+# ------------------------------------------------------------------------------
+# Wilson212's Ai MOD Configuration
+# ------------------------------------------------------------------------------
+stats_ai_score_mod_enable = 0	# Allows increase in Bot score to make things more challenging
+stats_ai_score_multiplier = 2	# Multiplier for bots scores
 
 # ------------------------------------------------------------------------------
 # END CONFIGURATION

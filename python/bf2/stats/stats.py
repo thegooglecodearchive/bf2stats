@@ -5,7 +5,7 @@ from constants import *
 from bf2 import g_debug
 
 #omero, 2006-04-13
-from bf2.BF2StatisticsConfig import pm_ai_player_addr, debug_fraglog_enable
+from bf2.BF2StatisticsConfig import pm_ai_player_addr, debug_fraglog_enable, stats_ai_score_mod_enable, stats_ai_score_multiplier
 
 #omero, 2006-04-13
 #assign the bots an ip
@@ -305,6 +305,15 @@ class PlayerStat:
 		
 	# calculate final stats values for this player (disconnected or end of round)
 	def finalize(self, player):
+	
+		###	Ai Score Modifier By Wilson212	###
+		if stats_ai_score_mod_enable == 1:
+			if g_debug: print "Ai Score Multiplier Enabled. Setting mulitplier at ", stats_ai_score_multiplier
+		else:
+			if g_debug: print "Ai Score Multiplier Disabled, No score adjustments made"
+		
+		## END SCORE MODIFIER SCRIPT ##
+	
 		self.copyPlayerData(player)
 		
 		if self.currentWeaponType != NUM_WEAPON_TYPES:
@@ -335,6 +344,21 @@ class PlayerStat:
 	# copy data to player-stats, as player might not be available after this
 	def copyPlayerData(self, player):
 		self.timeOnLine += date() - self.connectAt
+		
+		#############################################
+		# 		Ai Score Modifier By Wilson212		#
+		#############################################
+		
+		### If we have Bot double score enabled ###
+		if stats_ai_score_mod_enable == 1:		
+			if player.isAIPlayer():
+				if g_debug: print "Player %s is a BOT, multiplying Score. Old score = %d" % (player.getName(), player.score.score)					
+				player.score.score = (player.score.score * stats_ai_score_multiplier)
+				if g_debug: print "New score for %s = %d applied." % (player.getName(), player.score.score)					
+			else:
+				if g_debug: print "Player is Human, score untouched"
+		
+		### End Bot Score Doubling ###
 
 		self.localScore = player.score
 		

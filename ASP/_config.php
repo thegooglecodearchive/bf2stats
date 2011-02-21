@@ -6,7 +6,7 @@
 * this file. Please use the Web Admin  *
 * to change values.                    *
 ***************************************/
-$db_expected_ver = '1.4.3';
+$db_expected_ver = '1.4.4';
 $db_host = 'localhost';
 $db_port = 3306;
 $db_name = 'bf2stats';
@@ -31,7 +31,7 @@ $stats_players_max = 256;
 $stats_rank_check = 0;
 $stats_rank_tenure = 7;
 $stats_awds_complete = 0;
-$stats_lan_override = '68.52.239.219';
+$stats_lan_override = '255.255.255.255';
 $stats_local_pids = array('LocalPlayer01','210.84.29.151','LocalPlayer02','210.84.29.151');
 $debug_lvl = 1;
 $debug_log = 'logs/_stats_errors.log';

@@ -1,5 +1,5 @@
 <?php
-DEFINE('_CODE_VER','1.4.3');
+DEFINE('_CODE_VER','1.4.4');
 
 /* 
 	This script checks a remote IP address against a list of authorised hosts/subnets
