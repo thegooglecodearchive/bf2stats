@@ -523,7 +523,16 @@ if ($data['pc'] >= $cfg->get('stats_players_min') && $globals['roundtime'] >= $c
 			if ($data['v'] != 'poe2') {
 				$data["ta10_$x"] = $data["ta11_$x"] = 0;
 			}
-				
+			
+			if ($data['v'] != 'aix2') {
+				$data["ta12_$x"] = 0;
+			}
+			
+			// Check for missing CANADIAN Army
+			if (!$data["ta13_$x"]) {			
+				$data["ta13_$x"] = 0;
+			}
+			
 			// Check for missing EU Army
 			if (!$data["ta9_$x"]){
 				$data["ta9_$x"] = 0;
@@ -548,9 +557,11 @@ if ($data['pc'] >= $cfg->get('stats_players_min') && $globals['roundtime'] >= $c
 					time8 = " . $data["ta8_$x"] . ",
 					time9 = " . $data["ta9_$x"] . ",
 					time10 = " . $data["ta10_$x"] . ",
-					time11 = " . $data["ta11_$x"] . "
+					time11 = " . $data["ta11_$x"] . ",
+					time12 = " . $data["ta12_$x"] . ",
+					time13 = " . $data["ta13_$x"] . "
 				";
-				if ($army < 12) {	// Ignore Unknown Army
+				if ($army < 14) {	// Ignore Unknown Army
 					$query .= ", win" . $army . " = {$wins},
 						loss" . $army . " = {$losses},
 						score" . $army . " = " . $data["rs_$x"] . ",
@@ -577,9 +588,11 @@ if ($data['pc'] >= $cfg->get('stats_players_min') && $globals['roundtime'] >= $c
 					time8 = `time8` + " . $data["ta8_$x"] . ",
 					time9 = `time9` + " . $data["ta9_$x"] . ",
 					time10 = `time10` + " . $data["ta10_$x"] . ",
-					time11 = `time11` + " . $data["ta11_$x"] . "
+					time11 = `time11` + " . $data["ta11_$x"] . ",
+					time12 = `time12` + " . $data["ta12_$x"] . ",
+					time13 = `time13` + " . $data["ta13_$x"] . "
 				";
-				if ($army < 12) {	// Ignore Unknown Army
+				if ($army < 14) {	// Ignore Unknown Army
 					// Calculate best/worst score
 					$best = ($row["best$army"] > $data["rs_$x"]) ? $row["best$army"] : $data["rs_$x"];
 					$worst = ($row["worst$army"] < $data["rs_$x"]) ? $row["worst$army"] : $data["rs_$x"];

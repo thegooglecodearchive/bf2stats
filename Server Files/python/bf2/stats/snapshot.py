@@ -54,7 +54,7 @@ from bf2.BF2StatisticsConfig import snapshot_logging, snapshot_log_path_sent, sn
 from bf2.stats.miniclient import miniclient, http_postSnapshot
 
 # Added by Chump - for bf2statistics stats
-from time import time
+from time import time, localtime, strftime
 
 # omero, 2006-03-31
 # the following is no longer necessary
@@ -271,6 +271,8 @@ def getSnapShot():
 		v_value = 'xpack'
 	elif ( running_mod.lower() == 'mods/poe2' ):
 		v_value = 'poe2'
+	elif ( running_mod.lower() == 'mods/aix2' ):
+		v_value = 'aix2'
 	else:
 		v_value = 'bf2'
 	
@@ -435,6 +437,12 @@ def getPlayerSnapshot(playerStat):
 			#POE2 Stuff
 			("ta10", 	int(playerStat.timeAsArmy[ARMY_GER])),
 			("ta11", 	int(playerStat.timeAsArmy[ARMY_UKR])),
+			#AIX
+			("ta12",     int(playerStat.timeAsArmy[ARMY_UN])),
+			#CANADIAN FORCES
+			("ta13",     int(playerStat.timeAsArmy[ARMY_CANADIAN])),
+
+
 			
 			]
 	

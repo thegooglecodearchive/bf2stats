@@ -941,16 +941,28 @@ else
 			if (strpos($info, 'mods-') !== false) {
 				$out .= $rowa['time10'] . "\t" .
 					$rowa['time11'] . "\t" .
+					$rowa['time12'] . "\t" .
+					$rowa['time13'] . "\t" .
 					$rowa['win10'] . "\t" .
 					$rowa['win11'] . "\t" .
+					$rowa['win12'] . "\t" .
+					$rowa['win13'] . "\t" .
 					$rowa['loss10'] . "\t" .
 					$rowa['loss11'] . "\t" .
+					$rowa['loss12'] . "\t" .
+					$rowa['loss13'] . "\t" .
 					$rowa['brnd10'] . "\t" .
 					$rowa['brnd11'] . "\t" .
+					$rowa['brnd12'] . "\t" .
+					$rowa['brnd13'] . "\t" .
 					$rowa['best10'] . "\t" .
 					$rowa['best11'] . "\t" .
+					$rowa['best12'] . "\t" .
+					$rowa['best13'] . "\t" .
 					$rowa['worst10'] . "\t" .
-					$rowa['worst11'] . "\t";
+					$rowa['worst11'] . "\t" .
+					$rowa['worst12'] . "\t" .
+					$rowa['worst13'] . "\t";
 			}
 			
 			# For MNG
@@ -1672,7 +1684,7 @@ else
 			$rowa = mysql_fetch_array($result);
 		} else {
 			$rowa = array();
-			for ($i = 0; $i <= 11; $i++) {
+			for ($i = 0; $i <= 13; $i++) {
 				$rowa["time$i"] = '0';
 				$rowa["best$i"] = '0';
 				$rowa["win$i"] = '0';

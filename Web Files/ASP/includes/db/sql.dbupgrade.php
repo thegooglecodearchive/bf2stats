@@ -40,7 +40,24 @@ $sqlupgrade[] = array('Alter Army Table (POE2 Support)', '1.4.2',
 		ADD COLUMN `score11` int(10) unsigned NOT NULL default '0',
 		ADD COLUMN `best11` int(10) unsigned NOT NULL default '0',
 		ADD COLUMN `worst11` int(10) unsigned NOT NULL default '0',
-		ADD COLUMN `brnd11` int(10) unsigned NOT NULL default '0';");		
+		ADD COLUMN `brnd11` int(10) unsigned NOT NULL default '0';");
+
+$sqlupgrade[] = array('Alter Army Table (AIX2 & bf2 Canadian Forces Support)', '1.4.5',
+	"ALTER TABLE  `army`
+		ADD COLUMN `time12` int(10) unsigned NOT NULL default '0',
+		ADD COLUMN `win12` int(10) unsigned NOT NULL default '0',
+		ADD COLUMN `loss12` int(10) unsigned NOT NULL default '0',
+		ADD COLUMN `score12` int(10) unsigned NOT NULL default '0',
+		ADD COLUMN `best12` int(10) unsigned NOT NULL default '0',
+		ADD COLUMN `worst12` int(10) unsigned NOT NULL default '0',
+		ADD COLUMN `brnd12` int(10) unsigned NOT NULL default '0',
+		ADD COLUMN `time13` int(10) unsigned NOT NULL default '0',
+		ADD COLUMN `win13` int(10) unsigned NOT NULL default '0',
+		ADD COLUMN `loss13` int(10) unsigned NOT NULL default '0',
+		ADD COLUMN `score13` int(10) unsigned NOT NULL default '0',
+		ADD COLUMN `best13` int(10) unsigned NOT NULL default '0',
+		ADD COLUMN `worst13` int(10) unsigned NOT NULL default '0',
+		ADD COLUMN `brnd13` int(10) unsigned NOT NULL default '0';");		
 
 $sqlupgrade[] = array('Alter Map Info Table', '1.4.0',
 	"ALTER TABLE  `mapinfo`

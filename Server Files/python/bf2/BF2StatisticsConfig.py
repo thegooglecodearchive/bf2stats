@@ -1,5 +1,5 @@
 # ------------------------------------------------------------------------------
-# UnOfficial BF2Statistics 1.4.4 - Config File
+# UnOfficial BF2Statistics 1.4.5 - Config File
 # ------------------------------------------------------------------------------
 # Conventions:
 #    0 -> Disable
@@ -40,7 +40,7 @@ snapshot_prefix = 'BF2'		# Prefix Snapshots with this tag
 # ------------------------------------------------------------------------------
 # Medals Processing
 # ------------------------------------------------------------------------------
-medals_custom_data = 'custom'		# Suffix for your custom medals file(s)
+medals_custom_data = ''		# Suffix for your custom medals file(s)
 
 # Removing medal requirements can mess up the keystring, Use this to force the correct string
 # Recomended to enable if some medal requirement are removed from the medal_data.py
